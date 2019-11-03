@@ -1,0 +1,57 @@
+---
+# $ sudo apt install libusb-dev
+# $ wget https://www.obdev.at/downloads/vusb/bootloadHID.2012-12-08.tar.gz
+# $ tar -xzf bootloadHID.2012-12-08.tar.gz
+# $ cd bootloadHID.2012-12-08/commandline
+# $ make
+# $ sudo cp bootloadHID /usr/bin
+
+- name: install requirements
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - libusb-dev
+  become: yes
+
+- name: create temporary directory
+  tempfile:
+    state: directory
+    suffix: temp
+  register: tempdir
+
+- set_fact:
+    archive_shortname: "{{ (bootloadhid_relase_url | basename).split('.tar')[0] }}"
+
+- name: get bootloadHID release 2012-12-08
+  get_url:
+    url: "{{ bootloadhid_relase_url }}"
+    dest: "{{ tempdir.path }}/bootloadHID.tar.gz"
+    mode: 0444
+
+- name: extract scangearmp archive
+  unarchive:
+    src: "{{ tempdir.path }}/bootloadHID.tar.gz"
+    dest: "{{ tempdir.path }}"
+    remote_src: yes
+
+- name: build bootloadHID
+  shell: make
+  args:
+    chdir: "{{ tempdir.path }}/{{ archive_shortname }}/commandline"
+
+- name: install bootloadHID
+  copy:
+    remote_src: yes
+    dest: /usr/local/bin/bootloadHID
+    src: "{{ tempdir.path }}/{{ archive_shortname }}/commandline/bootloadHID"
+    mode: 0755
+    owner: admin
+    group: admin
+  become: yes
+
+- name: clean temporary directory
+  file:
+    path: "{{ tempdir.path }}"
+    state: absent
+  when: tempdir.path is defined

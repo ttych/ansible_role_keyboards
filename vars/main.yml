@@ -1,0 +1,8 @@
+---
+tools:
+  - gcc-avr
+  - binutils-avr
+  - dfu-programmer
+  - dfu-util
+
+bootloadhid_relase_url: https://www.obdev.at/downloads/vusb/bootloadHID.2012-12-08.tar.gz
