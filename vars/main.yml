@@ -1,6 +1,7 @@
 ---
-tools:
+keyboards_packages:
   - gcc-avr
+  - avr-libc
   - binutils-avr
   - dfu-programmer
   - dfu-util
