@@ -1,9 +1,10 @@
 ---
+- include: context.yml
+
 - name: install tools
   package:
-    name: "{{ item }}"
+    name: "{{ keyboards_packages }}"
     state: present
-  with_items: "{{ keyboards_packages }}"
   become: yes
 
 - include: bootloadHID.yml

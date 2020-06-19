@@ -1,0 +1,19 @@
+---
+keyboards_packages:
+  - git
+  - wget
+  - gmake
+  - gcc
+  - zip
+  - unzip
+  - avr-binutils
+  - avr-gcc
+  - avr-libc
+  - dfu-programmer
+  - dfu-util
+  - avrdude
+  - arm-none-eabi-gcc
+  - arm-none-eabi-binutils
+  - arm-none-eabi-newlib
+  - diffutils
+  - python3

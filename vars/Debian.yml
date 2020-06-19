@@ -1,0 +1,22 @@
+---
+keyboards_packages:
+  - build-essential
+  - avr-libc
+  - binutils-arm-none-eabi
+  - binutils-avr
+  - clang-format
+  - dfu-programmer
+  - dfu-util
+  - diffutils
+  - gcc
+  - gcc-arm-none-eabi
+  - gcc-avr
+  - git
+  - libnewlib-arm-none-eabi
+  - avrdude
+  - libusb-dev
+  - python3
+  - python3-pip
+  - unzip
+  - wget
+  - zip

@@ -1,0 +1,26 @@
+---
+keyboards_packages:
+  - arm-none-eabi-binutils-cs
+  - arm-none-eabi-gcc-cs
+  - arm-none-eabi-newlib
+  - avr-binutils
+  - avr-gcc
+  - avr-libc
+  - binutils-avr32-linux-gnu
+  - clang
+  - avrdude
+  - dfu-util
+  - dfu-programmer
+  - diffutils
+  - git
+  - gcc
+  - glibc-headers
+  - kernel-devel
+  - kernel-headers
+  - libusb-devel
+  - make
+  - perl
+  - python3
+  - unzip
+  - wget
+  - zip
